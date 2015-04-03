@@ -1,4 +1,3 @@
-#TestHive 
 #Web Automation with Ruby (Cucumber, Cabybara) Installation Guide for Mac
 
 1.Install RVM & Ruby 

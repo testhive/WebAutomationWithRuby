@@ -30,3 +30,5 @@ From Terminal:
 
 >gem install capybara --no-ri --no-rdoc
 
+
+3.You’ll want need a browser with developer tools. Chrome or Firefox with firebug will do.

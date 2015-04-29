@@ -115,3 +115,36 @@ Given(/^I read file with name "([^"]*)"$/) do |file_name|
     p row.to_a
   end
 end
+
+Given(/^I test things$/) do
+  x = 5
+  x.should == 6
+end
+
+Given(/^I visit main page$/) do
+  visit ""
+  page.driver.browser.manage.window.maximize
+end
+
+When(/^I search for "([^"]*)"$/) do |term|
+  case term
+    when "<default>"
+      find_by_id('searchTerm').set $search_term
+    else
+      find_by_id('searchTerm').set term
+  end
+
+  find("input.btn-turengsearch", match: :first).click
+end
+
+Then(/^Results should contain term "([^"]*)"$/) do |term|
+  find_by_id('englishResultsTable', match: :first).find('tr', text: term)
+end
+
+Then(/^I click on first suggestion$/) do
+  find('ul.suggestion-list').find('li > a', match: :first).click
+end
+
+Then(/^I wait for "([^"]*)" seconds$/) do |second|
+  sleep second.to_i
+end
